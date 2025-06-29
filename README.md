@@ -1,78 +1,83 @@
-# ReadRacer: Reading Experiment Web App
+# Read Racer
 
-Welcome to ReadRacer! This project is a full-stack web application designed to run reading comprehension experiments. It features a modern, mobile-friendly React frontend and a Python backend (Azure Functions) for content generation, analysis, and user management.
+**Read Racer** is a browser-based reading comprehension experiment designed to test how AI-generated summaries impact users’ reading speed and accuracy. The platform combines original science fiction content, custom AI-generated questions, and real-time result tracking to support educational research.
 
 ## Features
-- **Interactive Reading & Quiz Flow**: Users can participate in reading tasks, answer quizzes, and receive instant feedback.
-- **Tutorial & Experiment Modes**: Includes a guided tutorial and randomized experiment conditions (with/without summary).
-- **Google OAuth Login**: Secure authentication using Google accounts.
-- **Results & Analytics**: Users can view their results and compare with global stats.
-- **Mobile-First Design**: Responsive UI using Tailwind CSS for a seamless experience on any device.
 
-## Tech Stack
-- **Frontend**: React 19, Tailwind CSS, Framer Motion, Recharts
-- **Backend**: Python (Azure Functions)
-- **Authentication**: Google OAuth
-- **Other**: Express Rate Limit, JWT Decode
+- AI-generated passages and summaries in a controlled experiment
+- Interactive quizzes with both multiple choice and written answers
+- Dynamic visualizations of personal and global results
+- Points system based on reading efficiency and accuracy
+- Google Sign-In authentication
+- Leaderboards for top-performing participants
+- Tutorial mode to onboard users before the experiment
+
+## Technology Stack
+
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Azure Functions (JavaScript/Node.js)
+- **AI Integration**: Azure OpenAI Service (AI Foundry)
+- **Authentication**: Google OAuth 2.0
+- **Storage**: Azure Table Storage
+- **Hosting**: Azure Static Web Apps
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v18+ recommended)
-- npm or yarn
-- Python 3.10+ (for backend)
 
-### Frontend Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Gal-Raviv/ReadRacer.git
-   cd reading-experiment
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-3. Create a `.env` file with your Google OAuth client ID:
-   ```env
-   REACT_APP_GOOGLE_CLIENT_ID=your-google-client-id
-   ```
-4. Start the development server:
-   ```bash
-   npm start
-   ```
+- Node.js and npm
+- Azure Functions Core Tools
+- Git
 
-### Backend Setup (Azure Functions)
-1. Go to the `Functions` directory:
-   ```bash
-   cd ../Functions
-   ```
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Configure your Azure Function settings in `local.settings.json` (do not commit secrets!).
-4. Start the Azure Functions host:
-   ```bash
-   func host start
-   ```
+### Clone and Run Locally
 
-## Folder Structure
-```
-reading-experiment/   # React frontend
-Functions/            # Python backend (Azure Functions)
+#### Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+````
+
+#### Backend
+
+```bash
+cd backend
+npm install
+func start
 ```
 
-## Contributing
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+### Environment Variables
 
-## License
-MIT
+Ensure that your environment variables are configured for both frontend and backend (e.g., API keys, storage connection strings). These should not be committed to GitHub.
 
----
+## Project Structure
 
-**Note:**
-- Do not commit secrets or sensitive files (e.g., `.env`, `local.settings.json`).
-- For large files, use [Git LFS](https://git-lfs.github.com/).
-- For questions or support, open an issue on GitHub.
+```
+read-racer/
+├── frontend/       # React app
+├── backend/        # Azure Functions (API layer)
+├── README.md       # Project documentation
+```
+
+## Live Demo
+
+A live version of the project is available here:
+
+[coming soon]
+
+**Note**: You must sign in with a Google account to participate in the experiment.
+
+## How the Experiment Works
+
+1. Users are randomly assigned to read either a full passage or a summary.
+2. A comprehension quiz follows immediately after.
+3. AI grading assigns a score and calculates points based on reading time and accuracy.
+4. Data is stored and visualized both personally and globally.
+5. Users can opt-in to appear on the public leaderboard.
+
+## Author
+
+**Gal Raviv**
+Independent developer and researcher
+For inquiries or collaboration, please reach out via GitHub
