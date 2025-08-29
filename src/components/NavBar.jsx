@@ -12,7 +12,7 @@ const NavBar = ({ onNavigate, user, onLogin, activePage }) => {
         className="text-xl font-bold text-gray-800 cursor-pointer"
         onClick={() => onNavigate('home')}
       >
-        📘 Read Racer
+        Read Racer
       </div>
 
       <div className="flex gap-4 items-center relative">
